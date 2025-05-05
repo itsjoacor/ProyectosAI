@@ -1,0 +1,5 @@
+LANGCHAIN 
+    -LLM     -> Provide standard interface. 
+    -Prompts -> Instructions de respuestas, comportamiento
+    -Chain   -> Permite copilar cosas. Ejemplo, ujna query a una db y luego accede al template y luego da una respuesta etc
+             -> Una funcion llama a la otra y asi sucesivamente.

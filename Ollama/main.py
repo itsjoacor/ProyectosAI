@@ -5,7 +5,7 @@ from vector import retriever
 
 
 #Importo el modelo instalado de ollama - cmd version
-model = OllamaLLM(model="llama3.2")
+model = OllamaLLM(model="Gemma2")
 
 #especificar lo que quiero que me responda con un template
 template = """
@@ -47,6 +47,10 @@ Here is the user's request:
 
 {question}
 
+And heres a history of what we've been talking:
+
+{history}
+
 Your response:
 
 """
@@ -58,9 +62,9 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 #le tengo que pasar las variables numbers question.
-
+history= ""
 while True:
-    print("########################### Hey There i´m Ollama (llama3.2) im here to answer your questions ###########################################")
+    print("########################### Hey There i´m Ollama (Gemma2) im here to answer your questions ###########################################")
     question = input("Type your question or press q to quit: ")
 
     if question.upper() == "Q":
@@ -69,5 +73,6 @@ while True:
 
 
     subject = retriever.invoke(question)
-    result = chain.invoke({"subject": subject, "question": question})
+    result = chain.invoke({"subject": subject, "question": question, "history": history})
     print(result)
+    history +=  f"\nUser:{question}\nAI:{result}"

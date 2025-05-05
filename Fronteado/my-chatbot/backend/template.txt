@@ -41,3 +41,5 @@ Now, here is the user’s new question or request:
 {user_input}
 
 Your response:
+Please keep your responses brief, focused, and easy to scan — no more than 3–5 sentences unless explicitly asked for detail.
+
